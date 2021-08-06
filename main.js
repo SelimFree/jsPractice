@@ -8,11 +8,21 @@ const personalMovieDB  = {
     privat: false
 };
 
-const movie = prompt("Last movie watched", "");
-const rating = prompt("What rating will you give", "");
+for (let i = 0; i < 2; i++) {
+    const movie = prompt("Last movie watched", "");
+    const rating = prompt("What rating will you give", "");
+    if (movie != "" && rating != "" && movie.length < 50 && rating.length < 50 && movie != null && rating != null) {
+        personalMovieDB.movies[movie] = rating;
+    }
+}
 
-const movie_2 = prompt("Last movie watched", "");
-const rating_2= prompt("What rating will you give", "");
+if (personalMovieDB.count < 10) {
+    console.log("You have watched few films");
+} else if (personalMovieDB.count < 30) {
+    console.log("You are a classic viewer");
+} else if (personalMovieDB.count > 30) {
+    console.log("You are movie-monster!");
+} else {
+    console.log("Error!");
+}
 
-personalMovieDB.movies[movie] = rating;
-personalMovieDB.movies[movie_2] = rating_2;
